@@ -1,0 +1,44 @@
+{
+    "backbone":{
+        "structure" : ["conv0","conv1", "max0", "conv2", "conv3", "max1", "conv4", "conv5", "conv6", "max2", "conv9"],
+        "layers": {
+            "conv0": {"kernel":3, "channels_out": 64, "dilation": 1},
+            "conv1": {"kernel":3, "channels_out": 64, "dilation": 1},
+            "max0":  {"kernel": 2, "stride": 2},
+            "conv2": {"kernel":3, "channels_out": 128, "dilation": 1},
+            "conv3": {"kernel":3, "channels_out": 128, "dilation": 1},
+            "max1":  {"kernel": 2, "stride": 2},
+            "conv4": {"kernel":3, "channels_out": 256, "dilation": 1},
+            "conv5": {"kernel":3, "channels_out": 256, "dilation": 1},
+            "conv6": {"kernel":3, "channels_out": 256, "dilation": 1},
+            "max2":  {"kernel": 2, "stride": 2},
+            
+            "conv9": {"kernel":3, "channels_out": 512, "dilation": 1}
+        },
+        "dump": {
+            "structure" : ["conv0","conv1", "max0", "conv2", "conv3", "max1", "conv4", "conv5", "conv6", "max2", "conv7", "conv8", "conv9"],
+            "layers": {
+                "conv7": {"kernel":3, "channels_out": 512, "dilation": 1},
+                "conv8": {"kernel":3, "channels_out": 512, "dilation": 1}
+            }
+        }
+    },
+    "head": {
+        "structure" : ["conv0", "conv3", "conv4", "conv5", "conv6"],
+
+        "layers": {
+            "conv0": {"kernel":3, "channels_out": 512, "dilation": 2},
+            "conv3": {"kernel":3, "channels_out": 256, "dilation": 2},
+            "conv4": {"kernel":3, "channels_out": 128, "dilation": 2},
+            "conv5": {"kernel":3, "channels_out": 64, "dilation": 2},
+            "conv6": {"kernel":1, "channels_out": 1, "dilation": 1}
+        },
+        "dump": {
+            "structure" : ["conv0","conv1", "conv2", "conv3", "conv4", "conv5", "conv6"],
+            "layers": {
+                "conv1": {"kernel":3, "channels_out": 512, "dilation": 2},
+                "conv2": {"kernel":3, "channels_out": 512, "dilation": 2}
+            }
+        }
+    }
+}
