@@ -95,7 +95,7 @@ def generate_density_map(ground_truth, shape):
     distances, locations = tree.query(truth, k=4)
     sigmas = np.mean(distances[:, 1:], axis=1) * 0.3
 
-    kernel = volume_kernel(min(*shape) // 20, sigmas)
+    # kernel = volume_kernel(min(*shape) // 20, sigmas)
 
     truth = truth.T
     truth = np.vstack([truth.astype('int'), np.arange(len(sigmas)).reshape(1, len(sigmas))])

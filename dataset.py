@@ -54,7 +54,7 @@ class ShanghaiTech(Dataset):
         count, density_map, positions = ShanghaiTech.process_ground_truth(gt, (im.size[1], im.size[0]))
         if self.tranforms is not None:
             im = self.tranforms(im, target=False)
-            density_map = self.tranforms(torch.tensor(density_map), target=True)
+            density_map = self.tranforms(torch.tensor(density_map, dtype=torch.float32), target=True)
         else:
             im = torch.tensor(np.array(im), dtype=torch.float32)
             density_map = torch.tensor(density_map, dtype=torch.float32)

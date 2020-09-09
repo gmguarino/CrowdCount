@@ -13,8 +13,7 @@ class CSRNet(nn.Module):
         if not from_weights:
             self.backbone = self.parse_cfg(component='backbone', channels_in=3)
             self.load_vgg16_weights()
-            self.interpolation = nn.ConvTranspose2d(512, 512, 3, stride=8, padding=1)
-            # self.interpolation = nn.Upsample(scale_factor=8, mode='bilinear', align_corners=True)
+            self.interpolation = nn.Upsample(scale_factor=8, mode='bilinear', align_corners=True)
             self.head = self.parse_cfg(component='head', channels_in=512)
             self.init_layers(self.head)
         else:
@@ -27,7 +26,7 @@ class CSRNet(nn.Module):
         skip_idx = 0
         for idx, m in enumerate(self.backbone):
             if len(m.state_dict()) > 0:
-                # print(m.state_dict()["weight"].shape)
+                print(m.state_dict()["weight"].shape)
                 try:
                     m.load_state_dict(mod[idx + skip_idx].state_dict())
                 except RuntimeError:
